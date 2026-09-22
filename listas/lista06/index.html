@@ -1616,12 +1616,6 @@ aperte ▶ <strong>Run</strong>.</p>
 <p>Nos exercícios que mostram <strong>como deve ficar</strong>, compare a sua saída com a
 publicada aqui, linha por linha. Espaço a mais, acento faltando e letra
 maiúscula contam: o computador não relaxa em nenhum deles.</p>
-<p>Nos exercícios com bloco de testes, eles já estão no fim do arquivo. Se
-aparecer a mensagem de sucesso na última linha, está certo; se aparecer
-<code>AssertionError</code>, a linha apontada é o caso que a sua solução ainda não
-atende.</p>
-<p><strong>Não altere nada abaixo da linha de testes.</strong> Ela é a régua; mexer nela é
-trocar a régua de lugar.</p>
 </div>
 <h2 id="parte-a-no-papel">Parte A · no papel<a class="headerlink" href="#parte-a-no-papel" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
@@ -1705,30 +1699,45 @@ os dois extremos e as duas fronteiras, de cada lado.</p>
 </code></pre></div>
 <h2 id="parte-b-no-computador">Parte B · no computador<a class="headerlink" href="#parte-b-no-computador" title="Permanent link">&para;</a></h2>
 <h3 id="exercicio-01">Exercício 01<a class="headerlink" href="#exercicio-01" title="Permanent link">&para;</a></h3>
-<p>Escreva a função <code>classifica</code>, que recebe um número e devolve o texto
-<code>"positivo"</code>, <code>"negativo"</code> ou <code>"zero"</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">classifica</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>    <span class="c1"># -&gt; "positivo"</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">classifica</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>   <span class="c1"># -&gt; "negativo"</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">classifica</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># -&gt; "zero"</span>
+<p>Escreva um programa que pergunte um número e mostre se ele é <code>positivo</code>,
+<code>negativo</code> ou <code>zero</code>.</p>
+<p>Escreva exatamente essas três palavras, em minúsculas e sem acento.</p>
+<p>Rode o programa também com estes números e confira cada resposta:</p>
+<table>
+<thead>
+<tr>
+<th>Número</th>
+<th>Resposta esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>positivo</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>negativo</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>positivo</td>
+</tr>
+<tr>
+<td>-0.5</td>
+<td>negativo</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>0</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Digite um numero: 0
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>zero
 </code></pre></div>
-<p>Escreva exatamente essas três palavras, em minúsculas e sem acento: o teste
-compara letra por letra.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">classifica</span><span class="p">(</span><span class="n">numero</span><span class="p">):</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="sd">"""Devolve "positivo", "negativo" ou "zero"."""</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="c1"># TODO: use if, elif e else para os tres casos.</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="k">pass</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">assert</span> <span class="n">classifica</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"positivo"</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="k">assert</span> <span class="n">classifica</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"negativo"</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="k">assert</span> <span class="n">classifica</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"zero"</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="k">assert</span> <span class="n">classifica</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"positivo"</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="k">assert</span> <span class="n">classifica</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"negativo"</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 01: todos os testes passaram!"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Exercício 01 — positivo, negativo ou zero.</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># TODO: pergunte um numero.</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># TODO: use if, elif e else para os tres casos.</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># TODO: mostre a palavra correspondente.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista06/ex01.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex01.py</code></a></p>
 <h3 id="exercicio-02">Exercício 02<a class="headerlink" href="#exercicio-02" title="Permanent link">&para;</a></h3>
@@ -1755,31 +1764,52 @@ compara letra por letra.</p>
 </tr>
 </tbody>
 </table>
-<p>Escreva a função <code>preco_por_minuto</code>, que recebe os minutos falados no mês e
-devolve o preço por minuto daquela faixa.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">preco_por_minuto</span><span class="p">(</span><span class="mi">137</span><span class="p">)</span>   <span class="c1"># -&gt; 0.2</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">preco_por_minuto</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>   <span class="c1"># -&gt; 0.18</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">preco_por_minuto</span><span class="p">(</span><span class="mi">520</span><span class="p">)</span>   <span class="c1"># -&gt; 0.15</span>
-</code></pre></div>
+<p>Escreva um programa que pergunte quantos minutos o cliente falou no mês e
+mostre o preço por minuto da faixa dele, com duas casas decimais.</p>
 <p>Confira as fronteiras: 200 minutos já são a faixa do meio, e 400 já são a faixa
 de cima.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">preco_por_minuto</span><span class="p">(</span><span class="n">minutos</span><span class="p">):</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="sd">"""Devolve o preço por minuto da faixa de consumo."""</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="c1"># TODO: escada de if/elif/else com as tres faixas, na ordem certa.</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="k">pass</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="k">assert</span> <span class="n">preco_por_minuto</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.20</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="k">assert</span> <span class="n">preco_por_minuto</span><span class="p">(</span><span class="mi">199</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.20</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="k">assert</span> <span class="n">preco_por_minuto</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.18</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="k">assert</span> <span class="n">preco_por_minuto</span><span class="p">(</span><span class="mi">399</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.18</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="k">assert</span> <span class="n">preco_por_minuto</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.15</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="k">assert</span> <span class="n">preco_por_minuto</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.15</span>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 02: todos os testes passaram!"</span><span class="p">)</span>
+<p>Rode o programa também com estes valores e confira cada resposta — são os seis
+da tabela da Parte A:</p>
+<table>
+<thead>
+<tr>
+<th>Minutos</th>
+<th>Preço esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>R$ 0,20</td>
+</tr>
+<tr>
+<td>199</td>
+<td>R$ 0,20</td>
+</tr>
+<tr>
+<td>399</td>
+<td>R$ 0,18</td>
+</tr>
+<tr>
+<td>400</td>
+<td>R$ 0,15</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>R$ 0,15</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>200</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Minutos falados no mes: 200
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Minutos: 200
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Preco por minuto: R$ 0.18
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Exercício 02 — o preço da faixa de consumo.</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># TODO: pergunte quantos minutos o cliente falou no mes.</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># TODO: escada de if/elif/else com as tres faixas, na ordem certa.</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># TODO: mostre o preco por minuto com duas casas decimais.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista06/ex02.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex02.py</code></a></p>
 <h3 id="exercicio-03">Exercício 03<a class="headerlink" href="#exercicio-03" title="Permanent link">&para;</a></h3>
@@ -1794,76 +1824,130 @@ de cima.</p>
 <tbody>
 <tr>
 <td>até 12 anos</td>
-<td><code>"Infantil"</code></td>
+<td><code>Infantil</code></td>
 </tr>
 <tr>
 <td>de 13 a 17</td>
-<td><code>"Juvenil"</code></td>
+<td><code>Juvenil</code></td>
 </tr>
 <tr>
 <td>18 ou mais</td>
-<td><code>"Adulto"</code></td>
+<td><code>Adulto</code></td>
 </tr>
 </tbody>
 </table>
-<p>Escreva a função <code>categoria</code>, que recebe a idade e devolve a categoria. Idade
-<strong>zero ou negativa</strong> não é categoria nenhuma: nesse caso, devolva
-<code>"Idade invalida"</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">categoria</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>   <span class="c1"># -&gt; "Infantil"</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">categoria</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>   <span class="c1"># -&gt; "Juvenil"</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">categoria</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># -&gt; "Idade invalida"</span>
-</code></pre></div>
+<p>Escreva um programa que pergunte a idade do participante e mostre a categoria.
+Idade <strong>zero ou negativa</strong> não é categoria nenhuma: nesse caso, mostre
+<code>Idade invalida</code>.</p>
 <p>Comece a escada pelo teste que <strong>rejeita</strong>. Depois dele, você já sabe que a
 idade é positiva, e o resto fica simples.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">categoria</span><span class="p">(</span><span class="n">idade</span><span class="p">):</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="sd">"""Devolve a categoria do participante, ou "Idade invalida"."""</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="c1"># TODO: rejeite idade &lt;= 0 primeiro, depois classifique nas tres faixas.</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="k">pass</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="k">assert</span> <span class="n">categoria</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Infantil"</span>
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="k">assert</span> <span class="n">categoria</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Infantil"</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="k">assert</span> <span class="n">categoria</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Juvenil"</span>
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="k">assert</span> <span class="n">categoria</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Juvenil"</span>
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="k">assert</span> <span class="n">categoria</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Adulto"</span>
-<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="k">assert</span> <span class="n">categoria</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Adulto"</span>
-<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="k">assert</span> <span class="n">categoria</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Idade invalida"</span>
-<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="k">assert</span> <span class="n">categoria</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Idade invalida"</span>
-<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 03: todos os testes passaram!"</span><span class="p">)</span>
+<p>Rode o programa também com estas idades e confira cada resposta:</p>
+<table>
+<thead>
+<tr>
+<th>Idade</th>
+<th>Resposta esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>Infantil</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Infantil</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Juvenil</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Juvenil</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Adulto</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Adulto</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>Idade invalida</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>0</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Idade do participante: 0
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Idade invalida
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Exercício 03 — a categoria do participante.</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1"># TODO: pergunte a idade.</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># TODO: rejeite idade &lt;= 0 primeiro, depois classifique nas tres faixas.</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># TODO: mostre a categoria.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista06/ex03.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex03.py</code></a></p>
 <h3 id="exercicio-04">Exercício 04<a class="headerlink" href="#exercicio-04" title="Permanent link">&para;</a></h3>
 <p>Um brinquedo do parque exige <strong>pelo menos 12 anos e pelo menos 1,50 m</strong>. As duas
 exigências valem ao mesmo tempo: quem tem 30 anos e 1,40 m também não entra.</p>
-<p>Escreva a função <code>pode_entrar</code>, que recebe a idade e a altura e devolve <code>True</code>
-ou <code>False</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">pode_entrar</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">1.62</span><span class="p">)</span>   <span class="c1"># -&gt; True</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">pode_entrar</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">1.45</span><span class="p">)</span>   <span class="c1"># -&gt; False</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">pode_entrar</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">1.70</span><span class="p">)</span>   <span class="c1"># -&gt; False</span>
-</code></pre></div>
+<p>Escreva um programa que pergunte a idade e a altura da pessoa e mostre
+<code>Pode entrar</code> ou <code>Nao pode entrar</code>.</p>
 <p>Resolva com <strong>uma</strong> condição só, usando <code>and</code>. Quem tem exatamente 12 anos e
 exatamente 1,50 m entra.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">pode_entrar</span><span class="p">(</span><span class="n">idade</span><span class="p">,</span> <span class="n">altura</span><span class="p">):</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="sd">"""Devolve True quando a pessoa atende às duas exigências."""</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="c1"># TODO: junte as duas condicoes com and.</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="k">pass</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="k">assert</span> <span class="n">pode_entrar</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">1.62</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="k">assert</span> <span class="n">pode_entrar</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">1.50</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="k">assert</span> <span class="n">pode_entrar</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">1.45</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="k">assert</span> <span class="n">pode_entrar</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">1.70</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="k">assert</span> <span class="n">pode_entrar</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mf">1.49</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="k">assert</span> <span class="n">pode_entrar</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mf">1.40</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 04: todos os testes passaram!"</span><span class="p">)</span>
+<p>Rode o programa também com estes valores e confira cada resposta:</p>
+<table>
+<thead>
+<tr>
+<th>Idade</th>
+<th>Altura</th>
+<th>Resposta esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14</td>
+<td>1.62</td>
+<td>Pode entrar</td>
+</tr>
+<tr>
+<td>12</td>
+<td>1.50</td>
+<td>Pode entrar</td>
+</tr>
+<tr>
+<td>14</td>
+<td>1.45</td>
+<td>Nao pode entrar</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1.70</td>
+<td>Nao pode entrar</td>
+</tr>
+<tr>
+<td>11</td>
+<td>1.49</td>
+<td>Nao pode entrar</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>30</code>, <code>1.40</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Idade: 30
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Altura em metros: 1.40
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Nao pode entrar
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Exercício 04 — a entrada do brinquedo.</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">idade_minima</span> <span class="o">=</span> <span class="mi">12</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">altura_minima</span> <span class="o">=</span> <span class="mf">1.50</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># TODO: pergunte a idade e a altura da pessoa.</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># TODO: junte as duas condicoes com and, num if so.</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># TODO: mostre "Pode entrar" ou "Nao pode entrar".</span>
 </code></pre></div>
 <p><a href="../../scripts/lista06/ex04.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex04.py</code></a></p>
 <h3 id="exercicio-05">Exercício 05<a class="headerlink" href="#exercicio-05" title="Permanent link">&para;</a></h3>
@@ -1879,50 +1963,75 @@ percentual de intensidade que o celular mede:</p>
 <tbody>
 <tr>
 <td>75% ou mais</td>
-<td><code>"Otimo"</code></td>
+<td><code>Otimo</code></td>
 </tr>
 <tr>
 <td>de 50% a 74%</td>
-<td><code>"Bom"</code></td>
+<td><code>Bom</code></td>
 </tr>
 <tr>
 <td>de 25% a 49%</td>
-<td><code>"Fraco"</code></td>
+<td><code>Fraco</code></td>
 </tr>
 <tr>
 <td>abaixo de 25%</td>
-<td><code>"Sem sinal"</code></td>
+<td><code>Sem sinal</code></td>
 </tr>
 </tbody>
 </table>
-<p>Escreva a função <code>qualidade_sinal</code>, que recebe o percentual e devolve a palavra
+<p>Escreva um programa que pergunte o percentual de intensidade e mostre a palavra
 correspondente.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">qualidade_sinal</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>   <span class="c1"># -&gt; "Otimo"</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">qualidade_sinal</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>   <span class="c1"># -&gt; "Bom"</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">qualidade_sinal</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>   <span class="c1"># -&gt; "Sem sinal"</span>
-</code></pre></div>
 <p>Como as faixas são "a partir de", use <code>&gt;=</code> e comece pela <strong>maior</strong>. Na ordem
 inversa, o primeiro teste captura todo mundo e as outras três faixas viram
 enfeite.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">qualidade_sinal</span><span class="p">(</span><span class="n">percentual</span><span class="p">):</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="sd">"""Devolve "Otimo", "Bom", "Fraco" ou "Sem sinal"."""</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="c1"># TODO: escada de elif com &gt;=, da maior faixa para a menor.</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="k">pass</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="k">assert</span> <span class="n">qualidade_sinal</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Otimo"</span>
-<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="k">assert</span> <span class="n">qualidade_sinal</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Otimo"</span>
-<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="k">assert</span> <span class="n">qualidade_sinal</span><span class="p">(</span><span class="mi">74</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Bom"</span>
-<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="k">assert</span> <span class="n">qualidade_sinal</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Bom"</span>
-<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="k">assert</span> <span class="n">qualidade_sinal</span><span class="p">(</span><span class="mi">49</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fraco"</span>
-<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="k">assert</span> <span class="n">qualidade_sinal</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fraco"</span>
-<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="k">assert</span> <span class="n">qualidade_sinal</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Sem sinal"</span>
-<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="k">assert</span> <span class="n">qualidade_sinal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Sem sinal"</span>
-<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 05: todos os testes passaram!"</span><span class="p">)</span>
+<p>Rode o programa também com estes percentuais e confira cada resposta:</p>
+<table>
+<thead>
+<tr>
+<th>Percentual</th>
+<th>Resposta esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>Otimo</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Bom</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Bom</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Fraco</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Fraco</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Sem sinal</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Sem sinal</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>75</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Intensidade do sinal em %: 75
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Otimo
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Exercício 05 — a qualidade do sinal em palavras.</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># TODO: pergunte o percentual de intensidade do sinal.</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># TODO: escada de elif com &gt;=, da maior faixa para a menor.</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># TODO: mostre a palavra da faixa.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista06/ex05.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex05.py</code></a></p>
 <h3 id="exercicio-06">Exercício 06<a class="headerlink" href="#exercicio-06" title="Permanent link">&para;</a></h3>

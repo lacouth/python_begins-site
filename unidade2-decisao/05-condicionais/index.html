@@ -863,17 +863,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-lista-muda-de-formato-e-o-minimo-que-voce-precisa-saber" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A lista muda de formato — e o mínimo que você precisa saber
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#erros-comuns-deste-capitulo" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1657,17 +1646,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-lista-muda-de-formato-e-o-minimo-que-voce-precisa-saber" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A lista muda de formato — e o mínimo que você precisa saber
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#erros-comuns-deste-capitulo" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1994,39 +1972,6 @@ Ele não fica esperando o valor mudar, não repete nada, não tem memória do qu
 decidiu.</p>
 <p>Repetir é assunto da Unidade 3. Por enquanto, cada <code>if</code> é uma decisão única,
 tomada uma vez, no momento em que a linha é executada.</p>
-<h2 id="a-lista-muda-de-formato-e-o-minimo-que-voce-precisa-saber">A lista muda de formato — e o mínimo que você precisa saber<a class="headerlink" href="#a-lista-muda-de-formato-e-o-minimo-que-voce-precisa-saber" title="Permanent link">&para;</a></h2>
-<p>Da Lista 05 em diante, em vez de um programa inteiro você escreve uma
-<strong>função</strong>: um pedaço de programa que recebe um valor pronto e <strong>devolve</strong> uma
-resposta. O arquivo já vem com a primeira linha escrita e com os testes no fim;
-o que é seu é o miolo.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># A lista vem assim: a primeira linha ja escrita, e o miolo por sua conta.</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">situacao</span><span class="p">(</span><span class="n">media</span><span class="p">):</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="k">if</span> <span class="n">media</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">:</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>        <span class="k">return</span> <span class="s2">"Aprovado"</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>        <span class="k">return</span> <span class="s2">"Reprovado"</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="c1"># Daqui para baixo e o teste, que ja vem pronto no arquivo.</span>
-<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">situacao</span><span class="p">(</span><span class="mf">8.5</span><span class="p">))</span>
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">situacao</span><span class="p">(</span><span class="mf">6.5</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Aprovado
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Reprovado
-</code></pre></div>
-<p>Por enquanto, três regras bastam — funções ganham um capítulo só delas na
-Unidade 6:</p>
-<ul>
-<li>a linha <code>def nome(parametro):</code> <strong>já vem pronta</strong>, e você não mexe nela;</li>
-<li>o corpo da função é tudo o que está indentado abaixo do <code>def</code> — o seu <code>if</code>
-  fica recuado mais quatro espaços, portanto;</li>
-<li>dentro da função você usa <strong><code>return</code></strong>, e não <code>print</code>. <code>return</code> entrega o
-  valor a quem chamou; <code>print</code> só desenha na tela, e o teste não consegue ler o
-  que foi desenhado.</li>
-</ul>
-<p>Trocar <code>return</code> por <code>print</code> é o erro número um da primeira lista neste formato.
-O programa roda, você vê a resposta certa aparecer na tela, e mesmo assim o
-teste falha — porque a função devolveu <code>None</code>.</p>
 <h2 id="erros-comuns-deste-capitulo">Erros comuns deste capítulo<a class="headerlink" href="#erros-comuns-deste-capitulo" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

@@ -1599,16 +1599,16 @@
 
 
 <h1 id="lista-05-condicionais">Lista 05 · Condicionais<a class="headerlink" href="#lista-05-condicionais" title="Permanent link">&para;</a></h1>
-<p>Esta lista é a primeira do formato novo, e vale ler este parágrafo antes de
-começar. Em vez de um programa inteiro, cada exercício pede uma <strong>função</strong>: a
-primeira linha já vem escrita, você preenche o miolo, e os testes no fim do
-arquivo dizem se passou. É o formato da disciplina do período seguinte.</p>
-<p>Duas consequências práticas: o seu <code>if</code> fica indentado <strong>dentro</strong> da função,
-portanto com oito espaços; e a resposta sai por <code>return</code>, nunca por <code>print</code>.
-Uma função que imprime a resposta certa e não a devolve reprova em todos os
-testes — vale a pena errar isso aqui, e não na prova.</p>
-<p>O último exercício é o de sempre, um programa com <code>input()</code>, para o <code>if</code> não
-ficar só na teoria.</p>
+<p>Esta é a primeira lista em que o programa deixa de fazer sempre a mesma coisa:
+com o <code>if</code>, ele escolhe. Todo exercício aqui é um programa inteiro, com
+<code>input()</code>, como nas listas anteriores.</p>
+<p>Quase todo erro de <code>if</code> mora na <strong>fronteira</strong> — no valor exatamente igual ao
+limite. Por isso vários enunciados trazem uma tabela de valores para você rodar
+o programa mais de uma vez e conferir cada resposta. Rode todos: é ali que o
+programa que parece certo se entrega.</p>
+<p>Atenção também à indentação: o que está dentro do <code>if</code> só acontece quando a
+condição é verdadeira, e o que está fora acontece sempre. Trocar um pelo outro
+não dá erro nenhum — só dá resposta errada.</p>
 <p><a class="md-button" href="https://www.onlinegdb.com/online_python_compiler"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5.14v14l11-7z"/></svg></span> Abrir o OnlineGDB</a></p>
 <div class="admonition tip">
 <p class="admonition-title">Como esta lista funciona</p>
@@ -1618,12 +1618,6 @@ aperte ▶ <strong>Run</strong>.</p>
 <p>Nos exercícios que mostram <strong>como deve ficar</strong>, compare a sua saída com a
 publicada aqui, linha por linha. Espaço a mais, acento faltando e letra
 maiúscula contam: o computador não relaxa em nenhum deles.</p>
-<p>Nos exercícios com bloco de testes, eles já estão no fim do arquivo. Se
-aparecer a mensagem de sucesso na última linha, está certo; se aparecer
-<code>AssertionError</code>, a linha apontada é o caso que a sua solução ainda não
-atende.</p>
-<p><strong>Não altere nada abaixo da linha de testes.</strong> Ela é a régua; mexer nela é
-trocar a régua de lugar.</p>
 </div>
 <h2 id="parte-a-no-papel">Parte A · no papel<a class="headerlink" href="#parte-a-no-papel" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
@@ -1674,145 +1668,270 @@ cliente usou só 12 GB dos 20. Por quê?</p>
 <h3 id="exercicio-01">Exercício 01<a class="headerlink" href="#exercicio-01" title="Permanent link">&para;</a></h3>
 <p>O aplicativo da operadora precisa avisar o cliente quando ele passa da franquia
 de dados do mês.</p>
-<p>Escreva a função <code>passou_da_franquia</code>, que recebe quantos GB foram usados e
-quantos GB o plano dá, e devolve <code>True</code> se o cliente passou da franquia e
-<code>False</code> caso contrário.</p>
+<p>Escreva um programa que pergunte quantos GB o cliente já usou e quantos GB o
+plano dá, e mostre se ele passou ou não da franquia.</p>
 <p>Quem usou <strong>exatamente</strong> a franquia ainda não passou.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">passou_da_franquia</span><span class="p">(</span><span class="mf">21.5</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c1"># -&gt; True</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">passou_da_franquia</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>    <span class="c1"># -&gt; False</span>
+<p>Rode o programa também com estes valores e confira cada resposta:</p>
+<table>
+<thead>
+<tr>
+<th>Usado</th>
+<th>Franquia</th>
+<th>Resposta esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>21.5</td>
+<td>20</td>
+<td>passou</td>
+</tr>
+<tr>
+<td>19.9</td>
+<td>20</td>
+<td>não passou</td>
+</tr>
+<tr>
+<td>0</td>
+<td>20</td>
+<td>não passou</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3</td>
+<td>passou</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>20</code>, <code>20</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>GB usados no mes: 20
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Franquia do plano em GB: 20
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Usado: 20.0 GB de 20.0 GB
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Voce esta dentro da franquia.
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">passou_da_franquia</span><span class="p">(</span><span class="n">usado_gb</span><span class="p">,</span> <span class="n">franquia_gb</span><span class="p">):</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="sd">"""Devolve True quando o consumo ultrapassou a franquia do plano."""</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="c1"># TODO: compare o que foi usado com a franquia e devolva True ou False.</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="k">pass</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">assert</span> <span class="n">passou_da_franquia</span><span class="p">(</span><span class="mf">21.5</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="k">assert</span> <span class="n">passou_da_franquia</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="k">assert</span> <span class="n">passou_da_franquia</span><span class="p">(</span><span class="mf">19.9</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="k">assert</span> <span class="n">passou_da_franquia</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="k">assert</span> <span class="n">passou_da_franquia</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 01: todos os testes passaram!"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Exercício 01 — alerta de franquia estourada.</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># TODO: pergunte quantos GB o cliente usou.</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># TODO: pergunte quantos GB o plano da de franquia.</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># TODO: mostre o consumo e, com um if/else, diga se passou ou nao da franquia.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista05/ex01.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex01.py</code></a></p>
 <h3 id="exercicio-02">Exercício 02<a class="headerlink" href="#exercicio-02" title="Permanent link">&para;</a></h3>
-<p>Escreva a função <code>maior</code>, que recebe dois números e devolve o maior dos dois.</p>
-<p>Se os dois forem iguais, devolver qualquer um deles dá na mesma — é o mesmo
-valor.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">maior</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>    <span class="c1"># -&gt; 10</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">maior</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># -&gt; -2</span>
+<p>Um cliente mediu a velocidade da internet em dois momentos do dia e quer saber
+qual foi a melhor.</p>
+<p>Escreva um programa que pergunte as <strong>duas medições</strong>, em Mb/s, e diga qual é a
+maior — ou avise que as duas deram o mesmo valor.</p>
+<p>São <strong>três</strong> saídas possíveis, e é isso que faz o exercício: a primeira medição
+ser a maior, a segunda ser a maior, ou as duas serem iguais.</p>
+<p>Não use a função pronta <code>max</code> do Python: o exercício é sobre a decisão.</p>
+<p>Use exatamente estes textos, para a sua sessão bater com a publicada:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Primeira medicao (Mb/s):
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Segunda medicao (Mb/s):
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>A maior foi a primeira: X Mb/s
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>A maior foi a segunda: X Mb/s
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>As duas foram iguais: X Mb/s
 </code></pre></div>
-<p>Não use a função pronta <code>max</code> do Python: o exercício é sobre o <code>if</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">maior</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="sd">"""Devolve o maior entre os dois números recebidos."""</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="c1"># TODO: compare a e b e devolva o maior.</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="k">pass</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="k">assert</span> <span class="n">maior</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="k">assert</span> <span class="n">maior</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="k">assert</span> <span class="n">maior</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="k">assert</span> <span class="n">maior</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="k">assert</span> <span class="n">maior</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.5</span>
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 02: todos os testes passaram!"</span><span class="p">)</span>
+<div class="admonition warning">
+<p class="admonition-title">O caso do empate é o que pega</p>
+<p>Com <code>&gt;</code> sozinho e um <code>else</code>, o empate cai no <code>else</code> e o programa diz que a
+segunda foi a maior — o que é falso. O empate precisa de um teste próprio.</p>
+</div>
+<p><strong>Rode também com estes valores e confira cada resposta:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Medições</th>
+<th>Resposta esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>48.5 e 12.0</td>
+<td>a primeira, 48.5</td>
+</tr>
+<tr>
+<td>12.0 e 48.5</td>
+<td>a segunda, 48.5</td>
+</tr>
+<tr>
+<td>30.0 e 30.0</td>
+<td>iguais, 30.0</td>
+</tr>
+<tr>
+<td>9.9 e 10.0</td>
+<td>a segunda, 10.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>30.0</code>, <code>30.0</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Primeira medicao (Mb/s): 30.0
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Segunda medicao (Mb/s): 30.0
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>As duas foram iguais: 30.0 Mb/s
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Exercício 02 — qual medição foi a melhor.</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1"># TODO: pergunte as duas medições, em Mb/s, e converta para float.</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># TODO: decida entre três casos — a primeira é maior, a segunda é maior,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1">#       ou as duas são iguais. Cada um tem a sua mensagem.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista05/ex02.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex02.py</code></a></p>
 <h3 id="exercicio-03">Exercício 03<a class="headerlink" href="#exercicio-03" title="Permanent link">&para;</a></h3>
 <p>Um radar multa quem passa de 80 km/h. A multa é de <strong>R$ 5 por km/h acima de
 80</strong> — quem passou a 90 paga R$ 50.</p>
-<p>Escreva a função <code>valor_multa</code>, que recebe a velocidade do carro e devolve o
-valor da multa. Quem não passou de 80 não paga nada: a função devolve <code>0</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">valor_multa</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>   <span class="c1"># -&gt; 50</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">valor_multa</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>   <span class="c1"># -&gt; 0</span>
-</code></pre></div>
+<p>Escreva um programa que pergunte a velocidade do carro e mostre o valor da
+multa, com duas casas decimais. Quem não passou de 80 não paga nada: a multa
+é R$ 0,00.</p>
 <p>Cuidado com a fronteira: 80 km/h <strong>não</strong> é multa.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">valor_multa</span><span class="p">(</span><span class="n">velocidade</span><span class="p">):</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="sd">"""Devolve o valor da multa em reais: R$ 5 por km/h acima de 80."""</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="c1"># TODO: se passou de 80, cobre 5 reais por km/h excedente; senão, 0.</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="k">pass</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="k">assert</span> <span class="n">valor_multa</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">==</span> <span class="mi">50</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="k">assert</span> <span class="n">valor_multa</span><span class="p">(</span><span class="mi">81</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="k">assert</span> <span class="n">valor_multa</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="k">assert</span> <span class="n">valor_multa</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="k">assert</span> <span class="n">valor_multa</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span> <span class="o">==</span> <span class="mi">200</span>
-<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 03: todos os testes passaram!"</span><span class="p">)</span>
+<p>Rode o programa também com estas velocidades e confira cada resposta:</p>
+<table>
+<thead>
+<tr>
+<th>Velocidade</th>
+<th>Multa esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>90</td>
+<td>R$ 50,00</td>
+</tr>
+<tr>
+<td>81</td>
+<td>R$ 5,00</td>
+</tr>
+<tr>
+<td>60</td>
+<td>R$ 0,00</td>
+</tr>
+<tr>
+<td>120</td>
+<td>R$ 200,00</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>80</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Velocidade do carro em km/h: 80
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Multa: R$ 0.00
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Exercício 03 — a multa do radar.</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">limite</span> <span class="o">=</span> <span class="mi">80</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">preco_por_km</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># TODO: pergunte a velocidade do carro.</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># TODO: se passou do limite, cobre 5 reais por km/h excedente; senao, a multa e 0.</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># TODO: mostre o valor da multa com duas casas decimais.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista05/ex03.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex03.py</code></a></p>
 <h3 id="exercicio-04">Exercício 04<a class="headerlink" href="#exercicio-04" title="Permanent link">&para;</a></h3>
 <p>A conta de luz tem duas tarifas: quem consome <strong>até 150 kWh</strong> paga R$ 0,45 por
 kWh; quem passa disso paga R$ 0,72 por kWh — e a tarifa mais cara vale para o
 consumo <strong>inteiro</strong>, não só para o que passou.</p>
-<p>Escreva a função <code>conta_energia</code>, que recebe o consumo em kWh e devolve o valor
-a pagar <strong>arredondado para duas casas</strong>, com <code>round(valor, 2)</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">conta_energia</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>   <span class="c1"># -&gt; 67.5</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">conta_energia</span><span class="p">(</span><span class="mi">151</span><span class="p">)</span>   <span class="c1"># -&gt; 108.72</span>
+<p>Escreva um programa que pergunte o consumo em kWh e mostre o valor a pagar,
+com duas casas decimais.</p>
+<p>Rode o programa com 150 e depois com 151: um kWh a mais quase dobra a conta.
+É a tarifa toda que muda de faixa.</p>
+<p>Rode também com estes consumos e confira cada resposta:</p>
+<table>
+<thead>
+<tr>
+<th>Consumo</th>
+<th>Conta esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>150</td>
+<td>R$ 67,50</td>
+</tr>
+<tr>
+<td>151</td>
+<td>R$ 108,72</td>
+</tr>
+<tr>
+<td>100</td>
+<td>R$ 45,00</td>
+</tr>
+<tr>
+<td>0</td>
+<td>R$ 0,00</td>
+</tr>
+<tr>
+<td>320</td>
+<td>R$ 230,40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>151</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Consumo do mes em kWh: 151
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Tarifa aplicada: R$ 0.72 por kWh
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Total a pagar: R$ 108.72
 </code></pre></div>
-<p>Repare no salto entre os dois exemplos: um kWh a mais quase dobra a conta. É a
-tarifa toda que muda de faixa.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">conta_energia</span><span class="p">(</span><span class="n">kwh</span><span class="p">):</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="sd">"""Devolve o valor da conta de luz, arredondado para duas casas."""</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="c1"># TODO: escolha a tarifa (0.45 ate 150 kWh, 0.72 acima) e devolva o total.</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="k">pass</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="k">assert</span> <span class="n">conta_energia</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span> <span class="o">==</span> <span class="mf">67.5</span>
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="k">assert</span> <span class="n">conta_energia</span><span class="p">(</span><span class="mi">151</span><span class="p">)</span> <span class="o">==</span> <span class="mf">108.72</span>
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="k">assert</span> <span class="n">conta_energia</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="mf">45.0</span>
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="k">assert</span> <span class="n">conta_energia</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="k">assert</span> <span class="n">conta_energia</span><span class="p">(</span><span class="mi">320</span><span class="p">)</span> <span class="o">==</span> <span class="mf">230.4</span>
-<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 04: todos os testes passaram!"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Exercício 04 — a conta de luz em duas faixas.</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># TODO: pergunte o consumo em kWh.</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># TODO: escolha a tarifa com um if/else (0.45 ate 150 kWh, 0.72 acima).</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># TODO: multiplique o consumo pela tarifa e mostre o total com duas casas.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista05/ex04.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex04.py</code></a></p>
 <h3 id="exercicio-05">Exercício 05<a class="headerlink" href="#exercicio-05" title="Permanent link">&para;</a></h3>
 <p>O plano do cliente dá uma franquia de minutos por mês. Cada minuto falado
 <strong>além</strong> da franquia custa R$ 0,40.</p>
-<p>Escreva a função <code>taxa_excedente</code>, que recebe os minutos falados e os minutos da
-franquia e devolve quanto o cliente vai pagar de excedente, <strong>arredondado para
-duas casas</strong>. Quem ficou dentro da franquia paga <code>0</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">taxa_excedente</span><span class="p">(</span><span class="mi">137</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># -&gt; 14.8</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">taxa_excedente</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>   <span class="c1"># -&gt; 0</span>
+<p>Escreva um programa que pergunte os minutos falados e os minutos da franquia, e
+mostre quanto o cliente vai pagar de excedente, com duas casas decimais. Quem
+ficou dentro da franquia paga R$ 0,00.</p>
+<p>Cuidado com o caso de quem falou menos que a franquia: a conta
+<code>(falados - franquia) * 0.40</code> devolveria um valor <strong>negativo</strong>, e ninguém recebe
+dinheiro da operadora por não ter falado.</p>
+<p>Rode o programa também com estes valores e confira cada resposta:</p>
+<table>
+<thead>
+<tr>
+<th>Falados</th>
+<th>Franquia</th>
+<th>Excedente esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>137</td>
+<td>100</td>
+<td>R$ 14,80</td>
+</tr>
+<tr>
+<td>100</td>
+<td>100</td>
+<td>R$ 0,00</td>
+</tr>
+<tr>
+<td>101</td>
+<td>100</td>
+<td>R$ 0,40</td>
+</tr>
+<tr>
+<td>500</td>
+<td>200</td>
+<td>R$ 120,00</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>90</code>, <code>100</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Minutos falados no mes: 90
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Minutos da franquia: 100
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Minutos excedentes: 0
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>Valor do excedente: R$ 0.00
 </code></pre></div>
-<p>Cuidado com o caso de quem falou menos que a franquia: a conta <code>(falados -
-franquia) * 0.40</code> devolveria um valor <strong>negativo</strong>, e ninguém recebe dinheiro da
-operadora por não ter falado.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">taxa_excedente</span><span class="p">(</span><span class="n">minutos_falados</span><span class="p">,</span> <span class="n">minutos_franquia</span><span class="p">):</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="sd">"""Devolve quanto o cliente paga pelos minutos além da franquia."""</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="c1"># TODO: so ha excedente quando os minutos falados passam da franquia.</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="k">pass</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="k">assert</span> <span class="n">taxa_excedente</span><span class="p">(</span><span class="mi">137</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="mf">14.8</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="k">assert</span> <span class="n">taxa_excedente</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="k">assert</span> <span class="n">taxa_excedente</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="k">assert</span> <span class="n">taxa_excedente</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.4</span>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="k">assert</span> <span class="n">taxa_excedente</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span> <span class="o">==</span> <span class="mf">120.0</span>
-<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 05: todos os testes passaram!"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Exercício 05 — o excedente da franquia de minutos.</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">preco_do_minuto_extra</span> <span class="o">=</span> <span class="mf">0.40</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># TODO: pergunte os minutos falados e os minutos da franquia.</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># TODO: so ha excedente quando os minutos falados passam da franquia.</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="c1"># TODO: mostre o valor a pagar com duas casas decimais.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista05/ex05.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex05.py</code></a></p>
 <h3 id="exercicio-06">Exercício 06<a class="headerlink" href="#exercicio-06" title="Permanent link">&para;</a></h3>
-<p>Agora um programa inteiro, com <code>input()</code>, como nas listas anteriores.</p>
 <p>O plano tem franquia de 20 GB. Escreva um programa que pergunte quantos GB o
 cliente já usou e mostre:</p>
 <ul>
@@ -1822,16 +1941,16 @@ cliente já usou e mostre:</p>
 <p>Quem está abaixo dos 80% não vê alerta nenhum — o programa simplesmente termina.</p>
 <p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>17.4</code>,
 a tela tem de ficar assim:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Quantos GB ja usados: 17.4
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Voce usou 17.4 GB de 20 GB (87.0%)
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>ATENCAO: voce ja passou de 80% da franquia.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Quantos GB ja usados: 17.4
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Voce usou 17.4 GB de 20 GB (87.0%)
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>ATENCAO: voce ja passou de 80% da franquia.
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Exercício 06 — alerta de franquia.</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">franquia_gb</span> <span class="o">=</span> <span class="mi">20</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># TODO: pergunte quantos GB ja foram usados.</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="c1"># TODO: calcule o percentual consumido e mostre com uma casa decimal.</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="c1"># TODO: mostre o alerta SO quando o percentual passar de 80.</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Exercício 06 — alerta de franquia.</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">franquia_gb</span> <span class="o">=</span> <span class="mi">20</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1"># TODO: pergunte quantos GB ja foram usados.</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="c1"># TODO: calcule o percentual consumido e mostre com uma casa decimal.</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="c1"># TODO: mostre o alerta SO quando o percentual passar de 80.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista05/ex06.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex06.py</code></a></p>
 

@@ -1621,12 +1621,6 @@ aperte ▶ <strong>Run</strong>.</p>
 <p>Nos exercícios que mostram <strong>como deve ficar</strong>, compare a sua saída com a
 publicada aqui, linha por linha. Espaço a mais, acento faltando e letra
 maiúscula contam: o computador não relaxa em nenhum deles.</p>
-<p>Nos exercícios com bloco de testes, eles já estão no fim do arquivo. Se
-aparecer a mensagem de sucesso na última linha, está certo; se aparecer
-<code>AssertionError</code>, a linha apontada é o caso que a sua solução ainda não
-atende.</p>
-<p><strong>Não altere nada abaixo da linha de testes.</strong> Ela é a régua; mexer nela é
-trocar a régua de lugar.</p>
 </div>
 <h2 id="parte-a-no-papel">Parte A · no papel<a class="headerlink" href="#parte-a-no-papel" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
@@ -1807,172 +1801,356 @@ nada. Por quê?</p>
 </code></pre></div>
 <h2 id="parte-b-no-computador">Parte B · no computador<a class="headerlink" href="#parte-b-no-computador" title="Permanent link">&para;</a></h2>
 <h3 id="exercicio-01">Exercício 01<a class="headerlink" href="#exercicio-01" title="Permanent link">&para;</a></h3>
-<p>Escreva a função <code>soma_pares</code>, que recebe um inteiro <code>n</code> e devolve a soma de
-todos os números <strong>pares</strong> de 1 até <code>n</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">soma_pares</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>   <span class="c1"># -&gt; 30   (2 + 4 + 6 + 8 + 10)</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">soma_pares</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>    <span class="c1"># -&gt; 12   (2 + 4 + 6)</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">soma_pares</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># -&gt; 0</span>
-</code></pre></div>
+<p>Escreva um programa que pergunte um número inteiro <code>n</code> e mostre a soma de todos
+os números <strong>pares</strong> de 1 até <code>n</code>.</p>
 <p>Use <code>for</code> com <code>range(1, n + 1)</code> e um <code>if</code> dentro do laço. Lembre do capítulo 4:
 <code>numero % 2 == 0</code> é o teste de "é par".</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">soma_pares</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="sd">"""Devolve a soma dos numeros pares de 1 ate n."""</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="c1"># TODO: acumulador em 0, ANTES do for</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="c1"># TODO: for sobre range(1, n + 1), com um if que testa se e par</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="k">pass</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="k">assert</span> <span class="n">soma_pares</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="k">assert</span> <span class="n">soma_pares</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="k">assert</span> <span class="n">soma_pares</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="mi">12</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="k">assert</span> <span class="n">soma_pares</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">30</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="k">assert</span> <span class="n">soma_pares</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2550</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 01: todos os testes passaram!"</span><span class="p">)</span>
+<p>Use exatamente estes textos, para a sua sessão bater com a publicada:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Ate que numero somar:
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Soma dos pares: ...
+</code></pre></div>
+<p>A sessão publicada usa <code>7</code>, que é ímpar: o laço tem de ir até o 7 e parar de
+somar no 6. Mas o caso que <strong>quebra</strong> é o <code>1</code>: o laço dá <strong>uma</strong> volta, o <code>if</code>
+dá falso e a resposta é <code>0</code>. Se o seu programa imprimir <code>1</code> aí, o <code>if</code> não está
+filtrando nada.</p>
+<p><strong>Teste também estes, à mão</strong>, trocando o valor digitado — o <code>1</code> em primeiro
+lugar:</p>
+<table>
+<thead>
+<tr>
+<th><code>n</code> digitado</th>
+<th>Soma dos pares</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>7</td>
+<td>12</td>
+</tr>
+<tr>
+<td>10</td>
+<td>30</td>
+</tr>
+<tr>
+<td>100</td>
+<td>2550</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>7</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Ate que numero somar: 7
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Soma dos pares: 12
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Exercício 01 — a soma dos pares até n.</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># TODO: pergunte o numero (e converta para int).</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># TODO: acumulador em 0, ANTES do for.</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># TODO: for sobre range(1, n + 1), com um if que testa se e par.</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># TODO: depois do laco, mostre a soma dos pares.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista08/ex01.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex01.py</code></a></p>
 <h3 id="exercicio-02">Exercício 02<a class="headerlink" href="#exercicio-02" title="Permanent link">&para;</a></h3>
-<p>Escreva a função <code>conta_multiplos</code>, que devolve <strong>quantos</strong> números entre
-<code>inicio</code> e <code>fim</code> (os dois incluídos) são múltiplos de <code>divisor</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">conta_multiplos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>    <span class="c1"># -&gt; 3    (3, 6, 9)</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">conta_multiplos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># -&gt; 10</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">conta_multiplos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>   <span class="c1"># -&gt; 0</span>
-</code></pre></div>
+<p>Escreva um programa que pergunte um início, um fim e um divisor, e mostre
+<strong>quantos</strong> números entre o início e o fim (os dois incluídos) são múltiplos do
+divisor.</p>
 <p>É o padrão <strong>contador</strong>: uma variável que nasce em zero antes do laço e ganha
 <code>+ 1</code> só quando o <code>if</code> dá certo.</p>
+<p>Use exatamente estes textos, para a sua sessão bater com a publicada:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Inicio:
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Fim:
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Divisor:
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Multiplos: ...
+</code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Os dois incluídos</p>
 <p><code>range(inicio, fim)</code> <strong>para antes</strong> de <code>fim</code>. Para incluir o <code>fim</code>, o laço
-tem de ir até <code>fim + 1</code>.</p>
+tem de ir até <code>fim + 1</code>. Na sessão publicada, início e fim são o <strong>mesmo
+número</strong> (<code>5</code>, <code>5</code>, divisor <code>5</code>): a resposta certa é <code>1</code>. Quem esquece o
+<code>+ 1</code> responde <code>0</code> — e o programa não reclama.</p>
 </div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">conta_multiplos</span><span class="p">(</span><span class="n">inicio</span><span class="p">,</span> <span class="n">fim</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="sd">"""Quantos numeros de inicio ate fim (inclusive) sao multiplos de divisor."""</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="c1"># TODO: contador em 0, ANTES do for</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="c1"># TODO: percorra de inicio ate fim INCLUSIVE e teste o resto da divisao</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="k">pass</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="k">assert</span> <span class="n">conta_multiplos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="k">assert</span> <span class="n">conta_multiplos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="k">assert</span> <span class="n">conta_multiplos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="k">assert</span> <span class="n">conta_multiplos</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="k">assert</span> <span class="n">conta_multiplos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="k">assert</span> <span class="n">conta_multiplos</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 02: todos os testes passaram!"</span><span class="p">)</span>
+<p><strong>Teste também estes, à mão</strong>, trocando os valores digitados:</p>
+<table>
+<thead>
+<tr>
+<th>Início</th>
+<th>Fim</th>
+<th>Divisor</th>
+<th>Múltiplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>10</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>100</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1</td>
+<td>10</td>
+<td>11</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>20</td>
+<td>2</td>
+<td>10</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>5</code>, <code>5</code>, <code>5</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Inicio: 5
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Fim: 5
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Divisor: 5
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Multiplos: 1
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Exercício 02 — contar múltiplos num intervalo.</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># TODO: pergunte o inicio, o fim e o divisor (converta para int).</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># TODO: contador em 0, ANTES do for.</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># TODO: percorra de inicio ate fim INCLUSIVE e teste o resto da divisao.</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># TODO: depois do laco, mostre quantos multiplos foram encontrados.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista08/ex02.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex02.py</code></a></p>
 <h3 id="exercicio-03">Exercício 03<a class="headerlink" href="#exercicio-03" title="Permanent link">&para;</a></h3>
 <p>Um cliente tem uma franquia de dados e consome a mesma quantidade todo dia.
-Escreva a função <code>sobra_franquia</code>, que devolve quantos GB sobram depois de
-<code>dias</code> dias, <strong>arredondado para duas casas</strong>.</p>
+Escreva um programa que pergunte a franquia, o consumo diário e um número de
+dias, e mostre quantos GB <strong>sobram</strong> no fim, com duas casas decimais.</p>
 <p>A franquia nunca fica negativa: quando o consumo passa do que havia, o que sobra
 é <code>0</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">sobra_franquia</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>    <span class="c1"># -&gt; 13.0</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">sobra_franquia</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>   <span class="c1"># -&gt; 0.4</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">sobra_franquia</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>      <span class="c1"># -&gt; 0        (acabou no quarto dia)</span>
-</code></pre></div>
 <p>Use <code>for</code> com <code>range(dias)</code> — aqui o valor da variável do laço não importa, só a
 quantidade de voltas. Dentro do laço, desconte o consumo do dia e, com um <code>if</code>,
 impeça que o saldo fique negativo.</p>
-<p>Devolva <code>round(sobra, 2)</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">sobra_franquia</span><span class="p">(</span><span class="n">franquia_gb</span><span class="p">,</span> <span class="n">consumo_diario_gb</span><span class="p">,</span> <span class="n">dias</span><span class="p">):</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="sd">"""GB restantes depois de `dias` dias, nunca abaixo de zero."""</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="c1"># TODO: comece a sobra valendo a franquia inteira, ANTES do for</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="c1"># TODO: uma volta por dia: desconte o consumo e, se ficar negativo, zere</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="c1"># TODO: devolva round(sobra, 2)</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="k">pass</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="k">assert</span> <span class="n">sobra_franquia</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mf">13.0</span>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="k">assert</span> <span class="n">sobra_franquia</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.4</span>
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="k">assert</span> <span class="n">sobra_franquia</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="k">assert</span> <span class="n">sobra_franquia</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">20</span>
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="k">assert</span> <span class="n">sobra_franquia</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mf">10.0</span>
-<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 03: todos os testes passaram!"</span><span class="p">)</span>
+<p>Use exatamente estes textos, para a sua sessão bater com a publicada:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Franquia em GB:
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Consumo por dia em GB:
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Dias:
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Sobra: ... GB
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">A franquia que acabou no meio</p>
+<p>Na sessão publicada a franquia é 10 GB, o consumo é 3 GB por dia e são 5
+dias: acaba no quarto dia, e a resposta é <code>0.00</code> — nunca <code>-5.00</code>. É o <code>if</code>
+dentro do laço que garante isso.</p>
+</div>
+<p><strong>Teste também estes, à mão</strong>, trocando os valores digitados:</p>
+<table>
+<thead>
+<tr>
+<th>Franquia</th>
+<th>Consumo/dia</th>
+<th>Dias</th>
+<th>Sobra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>3</td>
+<td>5</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>20</td>
+<td>1.4</td>
+<td>5</td>
+<td>13.00</td>
+</tr>
+<tr>
+<td>20</td>
+<td>1.4</td>
+<td>14</td>
+<td>0.40</td>
+</tr>
+<tr>
+<td>20</td>
+<td>1.4</td>
+<td>0</td>
+<td>20.00</td>
+</tr>
+<tr>
+<td>15</td>
+<td>0.5</td>
+<td>10</td>
+<td>10.00</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>10</code>, <code>3</code>, <code>5</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Franquia em GB: 10
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Consumo por dia em GB: 3
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Dias: 5
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>Sobra: 0.00 GB
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Exercício 03 — o que sobra da franquia depois de alguns dias.</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># TODO: pergunte a franquia e o consumo diario (float) e os dias (int).</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># TODO: comece a sobra valendo a franquia inteira, ANTES do for.</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># TODO: uma volta por dia: desconte o consumo e, se ficar negativo, zere.</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># TODO: depois do laco, mostre a sobra com duas casas decimais.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista08/ex03.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex03.py</code></a></p>
 <h3 id="exercicio-04">Exercício 04<a class="headerlink" href="#exercicio-04" title="Permanent link">&para;</a></h3>
 <p>Quando a internet cai, o modem não fica tentando reconectar sem parar: ele
 espera <strong>1 segundo</strong> antes da primeira tentativa e <strong>dobra a espera</strong> a cada
 tentativa seguinte — 1, 2, 4, 8, 16...</p>
-<p>Escreva a função <code>espera_total</code>, que devolve quantos segundos o cliente esperou
-no total depois de um certo número de tentativas.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">espera_total</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># -&gt; 1</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">espera_total</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>   <span class="c1"># -&gt; 7    (1 + 2 + 4)</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">espera_total</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>   <span class="c1"># -&gt; 31   (1 + 2 + 4 + 8 + 16)</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">espera_total</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>   <span class="c1"># -&gt; 0</span>
-</code></pre></div>
+<p>Escreva um programa que pergunte quantas tentativas o modem fez e mostre quantos
+segundos o cliente esperou no total.</p>
 <p>São <strong>duas</strong> variáveis antes do laço: o total acumulado e a espera da vez. A
 segunda dobra a cada volta.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">espera_total</span><span class="p">(</span><span class="n">tentativas</span><span class="p">):</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="sd">"""Segundos somados de espera, dobrando a cada tentativa (1, 2, 4, 8...)."""</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="c1"># TODO: total em 0 e espera em 1, ANTES do for</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="c1"># TODO: uma volta por tentativa: some a espera ao total e dobre a espera</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="k">pass</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="k">assert</span> <span class="n">espera_total</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="k">assert</span> <span class="n">espera_total</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="k">assert</span> <span class="n">espera_total</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
-<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="k">assert</span> <span class="n">espera_total</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">7</span>
-<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="k">assert</span> <span class="n">espera_total</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">31</span>
-<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="k">assert</span> <span class="n">espera_total</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1023</span>
-<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 04: todos os testes passaram!"</span><span class="p">)</span>
+<p>Use exatamente estes textos, para a sua sessão bater com a publicada:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Tentativas:
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Espera total: ... s
+</code></pre></div>
+<p>A sessão publicada usa <code>5</code> tentativas, que é onde a duplicação aparece inteira:
+1 + 2 + 4 + 8 + 16. Mas o caso que <strong>quebra</strong> é o <code>0</code>: o laço dá <strong>zero voltas</strong>
+e a resposta é <code>0</code>, não <code>1</code>. Se o seu programa imprimir <code>1</code> aí, a espera da vez
+está sendo somada fora do laço.</p>
+<p><strong>Teste também estes, à mão</strong>, trocando o valor digitado — o <code>0</code> em primeiro
+lugar:</p>
+<table>
+<thead>
+<tr>
+<th>Tentativas</th>
+<th>Espera total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7</td>
+</tr>
+<tr>
+<td>5</td>
+<td>31</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1023</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>5</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Tentativas: 5
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Espera total: 31 s
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Exercício 04 — a espera acumulada das retentativas do modem.</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="c1"># TODO: pergunte quantas tentativas (converta para int).</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># TODO: total em 0 e espera em 1, ANTES do for.</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># TODO: uma volta por tentativa: some a espera ao total e dobre a espera.</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="c1"># TODO: depois do laco, mostre a espera total.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista08/ex04.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex04.py</code></a></p>
 <h3 id="exercicio-05">Exercício 05<a class="headerlink" href="#exercicio-05" title="Permanent link">&para;</a></h3>
-<p>Escreva a função <code>maior_divisor</code>, que recebe um inteiro <code>n</code> maior ou igual a 2 e
-devolve o <strong>maior divisor de <code>n</code> que seja menor que o próprio <code>n</code></strong>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">maior_divisor</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>    <span class="c1"># -&gt; 5</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">maior_divisor</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>    <span class="c1"># -&gt; 6</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">maior_divisor</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>     <span class="c1"># -&gt; 1    (7 e primo: so o 1 divide)</span>
-</code></pre></div>
+<p>Escreva um programa que pergunte um número inteiro <code>n</code> maior ou igual a 2 e
+mostre o <strong>maior divisor de <code>n</code> que seja menor que o próprio <code>n</code></strong>.</p>
 <p>Este é o padrão <strong>extremo</strong>: guarde um candidato e troque-o sempre que achar um
 melhor. Comece o candidato em <code>1</code>, que divide qualquer número — assim ele nunca
 começa com um valor que não existe.</p>
 <p>Percorra de <code>1</code> até <code>n - 1</code> e teste com <code>%</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">maior_divisor</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="sd">"""Maior divisor de n que seja menor que n (n &gt;= 2)."""</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="c1"># TODO: comece o candidato em 1, ANTES do for</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="c1"># TODO: percorra de 1 ate n - 1 e, se dividir n sem resto, guarde o</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="c1">#       candidato novo</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    <span class="k">pass</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1"># Testes — não altere daqui para baixo.</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1"># Rode o programa: se aparecer a mensagem de sucesso no fim, está certo.</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="c1"># --------------------------------------------------------------------</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="k">assert</span> <span class="n">maior_divisor</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="k">assert</span> <span class="n">maior_divisor</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="k">assert</span> <span class="n">maior_divisor</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
-<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="k">assert</span> <span class="n">maior_divisor</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
-<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="k">assert</span> <span class="n">maior_divisor</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="mi">50</span>
-<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="k">assert</span> <span class="n">maior_divisor</span><span class="p">(</span><span class="mi">97</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Exercício 05: todos os testes passaram!"</span><span class="p">)</span>
+<p>Use exatamente estes textos, para a sua sessão bater com a publicada:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Numero:
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Maior divisor: ...
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">O número primo</p>
+<p>Na sessão publicada o número é <code>7</code>, que é primo: nenhum candidato substitui
+o inicial, e a resposta é <code>1</code>. Se você começar o candidato em <code>0</code> — ou não
+começar com nada —, é aqui que o programa responde errado, ou quebra.</p>
+</div>
+<p><strong>Teste também estes, à mão</strong>, trocando o valor digitado:</p>
+<table>
+<thead>
+<tr>
+<th><code>n</code> digitado</th>
+<th>Maior divisor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>5</td>
+</tr>
+<tr>
+<td>12</td>
+<td>6</td>
+</tr>
+<tr>
+<td>97</td>
+<td>1</td>
+</tr>
+<tr>
+<td>100</td>
+<td>50</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>7</code>,
+a tela tem de ficar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Numero: 7
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>Maior divisor: 1
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Exercício 05 — o maior divisor próprio de n.</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="c1"># TODO: pergunte o numero (e converta para int).</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="c1"># TODO: comece o candidato em 1, ANTES do for.</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1"># TODO: percorra de 1 ate n - 1 e, se dividir n sem resto, guarde o</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1">#       candidato novo.</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="c1"># TODO: depois do laco, mostre o maior divisor encontrado.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista08/ex05.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex05.py</code></a></p>
 <h3 id="exercicio-06">Exercício 06<a class="headerlink" href="#exercicio-06" title="Permanent link">&para;</a></h3>
-<p><strong>Este é um programa inteiro, não uma função.</strong></p>
 <p>Escreva um programa que pergunte um número inteiro e imprima a tabuada dele, de
 1 a 10, uma linha por vez, neste formato:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>7 x 1 = 7
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>7 x 2 = 14
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>7 x 1 = 7
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>7 x 2 = 14
 </code></pre></div>
 <p>Use <code>for</code> com <code>range(1, 11)</code> — são dez voltas, e você sabe disso antes de
 começar. O convite da pergunta deve ser exatamente <code>Numero:</code>.</p>
@@ -1983,21 +2161,21 @@ indentada junto, o programa vai perguntar dez vezes.</p>
 </div>
 <p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>7</code>,
 a tela tem de ficar assim:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Numero: 7
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>7 x 1 = 7
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>7 x 2 = 14
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>7 x 3 = 21
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>7 x 4 = 28
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>7 x 5 = 35
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>7 x 6 = 42
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>7 x 7 = 49
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>7 x 8 = 56
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>7 x 9 = 63
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>7 x 10 = 70
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Numero: 7
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>7 x 1 = 7
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>7 x 2 = 14
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>7 x 3 = 21
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>7 x 4 = 28
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>7 x 5 = 35
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>7 x 6 = 42
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>7 x 7 = 49
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>7 x 8 = 56
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>7 x 9 = 63
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>7 x 10 = 70
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Exercício 06 — a tabuada.</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1"># TODO: pergunte o numero (e converta para int).</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="c1"># TODO: com um for sobre range(1, 11), imprima uma linha por multiplicacao.</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Exercício 06 — a tabuada.</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="c1"># TODO: pergunte o numero (e converta para int).</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="c1"># TODO: com um for sobre range(1, 11), imprima uma linha por multiplicacao.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista08/ex06.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex06.py</code></a></p>
 
