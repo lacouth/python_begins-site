@@ -2585,28 +2585,38 @@ a tela tem de ficar assim:</p>
 </code></pre></div>
 <p><a href="../../scripts/lista07/ex02.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex02.py</code></a></p>
 <h3 id="exercicio-03">Exercício 03<a class="headerlink" href="#exercicio-03" title="Permanent link">&para;</a></h3>
-<p>Um cliente tem uma franquia de dados em GB e consome sempre a mesma quantidade
-por dia. Escreva um programa que pergunte a franquia e o consumo diário e mostre
-<strong>quantos dias completos</strong> ele consegue usar sem estourar a franquia.</p>
-<p>É o laço do capítulo: um acumulador para o que já foi gasto e um contador para
-os dias. A condição tem de perguntar <strong>"ainda cabe mais um dia?"</strong>.</p>
+<p>Um cliente começou a assistir uma série pelo celular, e a cada dia ele assiste
+um pouco mais: o consumo de dados <strong>cresce</strong> sempre a mesma quantidade de um dia
+para o outro. Escreva um programa que pergunte a franquia, o consumo do primeiro
+dia e o aumento diário, e mostre <strong>quantos dias completos</strong> ele consegue usar
+sem estourar a franquia.</p>
+<p>Com 1 GB no primeiro dia e aumento de 0,2 GB, os dias gastam 1,0 — 1,2 — 1,4 —
+1,6 … GB. Não há divisão que responda isso: cada dia é diferente do anterior, e
+é o laço que vai somando um de cada vez.</p>
+<p>É o padrão do capítulo: um acumulador para o que já foi gasto e um contador para
+os dias. Mas aqui a condição tem de perguntar <strong>"ainda cabe mais um dia?"</strong> — e
+não "já estourou?" —, ou a resposta conta um dia que o cliente não conseguiu
+completar.</p>
 <p>Use exatamente estes textos, para a sua sessão bater com a publicada:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Franquia em GB:
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Consumo por dia em GB:
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Dias completos: ...
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Consumo no primeiro dia em GB:
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Aumento por dia em GB:
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>Dias completos: ...
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Quando não dá nem para o primeiro dia</p>
-<p>Com franquia de 5 GB e consumo de 10 GB por dia, a resposta é <code>0</code> — o laço
-dá zero voltas, e isso está certo. É esse o caso da sessão publicada. Um
-programa que responde <code>1</code> aí desconta um dia que o cliente nunca teve.</p>
+<p>Com franquia de 5 GB e consumo de 10 GB no primeiro dia, a resposta é <code>0</code> —
+o laço dá zero voltas, e isso está certo. É esse o caso da sessão
+publicada. Um programa que responde <code>1</code> aí desconta um dia que o cliente
+nunca teve.</p>
 </div>
 <p><strong>Teste também estes, à mão</strong>, trocando os valores digitados:</p>
 <table>
 <thead>
 <tr>
 <th>Franquia</th>
-<th>Consumo/dia</th>
+<th>Consumo no 1º dia</th>
+<th>Aumento/dia</th>
 <th>Dias completos</th>
 </tr>
 </thead>
@@ -2614,41 +2624,57 @@ programa que responde <code>1</code> aí desconta um dia que o cliente nunca tev
 <tr>
 <td>5</td>
 <td>10</td>
+<td>1</td>
 <td>0</td>
 </tr>
 <tr>
 <td>20</td>
+<td>1</td>
+<td>0.2</td>
+<td>10</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>30</td>
+<td>1</td>
+<td>0.5</td>
+<td>9</td>
+</tr>
+<tr>
+<td>20</td>
 <td>1.4</td>
+<td>0</td>
 <td>14</td>
 </tr>
 <tr>
 <td>10</td>
 <td>2</td>
+<td>0</td>
 <td>5</td>
-</tr>
-<tr>
-<td>10</td>
-<td>3</td>
-<td>3</td>
-</tr>
-<tr>
-<td>50</td>
-<td>0.5</td>
-<td>100</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>5</code>, <code>10</code>,
+<p>Repare nas duas últimas linhas: com aumento <code>0</code> o consumo é sempre o mesmo, e aí
+uma divisão resolveria (<code>20 // 1.4</code> dá 14). É o aumento que torna o laço
+necessário.</p>
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>5</code>, <code>10</code>, <code>1</code>,
 a tela tem de ficar assim:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Franquia em GB: 5
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Consumo por dia em GB: 10
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Dias completos: 0
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Consumo no primeiro dia em GB: 10
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Aumento por dia em GB: 1
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>Dias completos: 0
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Exercício 03 — quantos dias a franquia aguenta.</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="c1"># TODO: pergunte a franquia e o consumo diario (converta para float).</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Exercício 03 — quantos dias a franquia aguenta, com o consumo crescendo.</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="c1"># TODO: pergunte a franquia, o consumo do primeiro dia e o aumento por dia (float).</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1"># TODO: acumulador do que ja foi usado e contador de dias, ANTES do laco.</span>
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># TODO: continue enquanto couber MAIS UM dia dentro da franquia.</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># TODO: depois do laco, mostre os dias completos.</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># TODO: dentro do laco, depois de contar o dia, aumente o consumo do dia seguinte.</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="c1"># TODO: depois do laco, mostre os dias completos.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista07/ex03.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex03.py</code></a></p>
 <h3 id="exercicio-04">Exercício 04<a class="headerlink" href="#exercicio-04" title="Permanent link">&para;</a></h3>
@@ -2717,17 +2743,26 @@ a tela tem de ficar assim:</p>
 </code></pre></div>
 <p><a href="../../scripts/lista07/ex04.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex04.py</code></a></p>
 <h3 id="exercicio-05">Exercício 05<a class="headerlink" href="#exercicio-05" title="Permanent link">&para;</a></h3>
-<p>Você está juntando dinheiro para trocar de celular. Escreva um programa que
-pergunte o saldo que você já tem, quanto consegue guardar por mês e a meta, e
-mostre <strong>quantos meses</strong> faltam para o saldo alcançar ou passar a meta.</p>
-<p>Use exatamente estes textos, para a sua sessão bater com a publicada:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Saldo atual:
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>Deposito por mes:
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Meta:
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>Meses: ...
+<p>Você está juntando dinheiro para trocar de celular, numa conta que <strong>rende</strong> um
+tanto por cento ao mês. Escreva um programa que pergunte o saldo que você já
+tem, quanto consegue guardar por mês, o rendimento mensal e a meta, e mostre
+<strong>quantos meses</strong> faltam para o saldo alcançar ou passar a meta.</p>
+<p>A cada mês, nesta ordem: o saldo rende e depois recebe o depósito.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>saldo = saldo + saldo * rendimento / 100 + deposito_mensal
 </code></pre></div>
-<p>A sessão publicada usa saldo <code>200</code>, depósito <code>100</code> e meta <code>500</code> — três meses.
-Mas o caso que <strong>quebra</strong> é o da meta já alcançada: com saldo <code>500</code> e meta <code>500</code>
+<p>Use exatamente estes textos, para a sua sessão bater com a publicada:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Saldo atual:
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>Deposito por mes:
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>Rendimento ao mes (%):
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>Meta:
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>Meses: ...
+</code></pre></div>
+<p>A sessão publicada começa do zero, guarda <code>100</code> por mês com rendimento de <code>2</code>%
+e mira <code>1200</code>: são <strong>11</strong> meses. Sem o rendimento seriam 12, e aí uma divisão
+(<code>1200 / 100</code>) resolveria. Com o rendimento, cada mês soma um valor diferente do
+anterior, porque o saldo que rende é cada vez maior — e só o laço dá conta
+disso.</p>
+<p>Mas o caso que <strong>quebra</strong> é o da meta já alcançada: com saldo <code>500</code> e meta <code>500</code>
 a resposta é <code>0</code>, porque a condição já é falsa de saída e o laço dá <strong>zero</strong>
 voltas. Isso está certo, e é o primeiro que você tem de testar à mão.</p>
 <p><strong>Teste também estes, à mão</strong>, trocando os valores digitados:</p>
@@ -2736,6 +2771,7 @@ voltas. Isso está certo, e é o primeiro que você tem de testar à mão.</p>
 <tr>
 <th>Saldo</th>
 <th>Depósito/mês</th>
+<th>Rendimento (%)</th>
 <th>Meta</th>
 <th>Meses</th>
 </tr>
@@ -2744,58 +2780,76 @@ voltas. Isso está certo, e é o primeiro que você tem de testar à mão.</p>
 <tr>
 <td>500</td>
 <td>100</td>
+<td>1</td>
 <td>500</td>
 <td>0</td>
 </tr>
 <tr>
 <td>0</td>
 <td>100</td>
-<td>500</td>
+<td>2</td>
+<td>1200</td>
+<td>11</td>
+</tr>
+<tr>
+<td>0</td>
+<td>100</td>
+<td>0</td>
+<td>1200</td>
+<td>12</td>
+</tr>
+<tr>
+<td>0</td>
+<td>200</td>
 <td>5</td>
+<td>3000</td>
+<td>12</td>
+</tr>
+<tr>
+<td>0</td>
+<td>200</td>
+<td>0</td>
+<td>3000</td>
+<td>15</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>0</td>
+<td>1</td>
+<td>1100</td>
+<td>10</td>
 </tr>
 <tr>
 <td>200</td>
 <td>100</td>
+<td>0</td>
 <td>500</td>
 <td>3</td>
 </tr>
-<tr>
-<td>600</td>
-<td>100</td>
-<td>500</td>
-<td>0</td>
-</tr>
-<tr>
-<td>0</td>
-<td>150</td>
-<td>500</td>
-<td>4</td>
-</tr>
-<tr>
-<td>50</td>
-<td>25</td>
-<td>100</td>
-<td>2</td>
-</tr>
 </tbody>
 </table>
+<p>A linha com depósito <code>0</code> termina porque o rendimento sozinho já faz o saldo
+crescer.</p>
 <div class="admonition danger">
-<p class="admonition-title">Depósito zero não termina nunca</p>
-<p>Se você digitar <code>0</code> no depósito com o saldo abaixo da meta, o saldo nunca
-cresce e o laço não para. Botão <strong>Stop</strong> vermelho no OnlineGDB.</p>
+<p class="admonition-title">Saldo zero e depósito zero não termina nunca</p>
+<p>Se o saldo começar em <code>0</code> e o depósito for <code>0</code>, não há nada para render nem
+para somar: o saldo fica parado abaixo da meta e o laço não para. Botão
+<strong>Stop</strong> vermelho no OnlineGDB.</p>
 </div>
-<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>200</code>, <code>100</code>, <code>500</code>,
+<p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>0</code>, <code>100</code>, <code>2</code>, <code>1200</code>,
 a tela tem de ficar assim:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Saldo atual: 200
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>Deposito por mes: 100
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>Meta: 500
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>Meses: 3
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Saldo atual: 0
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Deposito por mes: 100
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Rendimento ao mes (%): 2
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>Meta: 1200
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>Meses: 11
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Exercício 05 — meses até alcançar a meta.</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="c1"># TODO: pergunte o saldo atual, o deposito mensal e a meta (converta para float).</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="c1"># TODO: um contador de meses, ANTES do laco.</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="c1"># TODO: enquanto o saldo for MENOR que a meta, deposite e conte um mes.</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="c1"># TODO: depois do laco, mostre quantos meses foram.</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Exercício 05 — meses até alcançar a meta, com o dinheiro rendendo.</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="c1"># TODO: pergunte o saldo atual, o deposito mensal, o rendimento (%) e a meta (float).</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1"># TODO: um contador de meses, ANTES do laco.</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1"># TODO: enquanto o saldo for MENOR que a meta: o saldo rende, recebe o deposito,</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="c1">#       e conta-se um mes.</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="c1"># TODO: depois do laco, mostre quantos meses foram.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista07/ex05.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex05.py</code></a></p>
 <h3 id="exercicio-06">Exercício 06<a class="headerlink" href="#exercicio-06" title="Permanent link">&para;</a></h3>
@@ -2809,10 +2863,10 @@ mostra:</p>
 </ul>
 <p>O <code>0</code> é a <strong>sentinela</strong>: ele encerra o laço e <strong>não entra na conta</strong>.</p>
 <p>Use exatamente estes textos, para a sua sessão bater com a publicada:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Consumo do dia em GB (0 encerra):
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>Dias informados: ...
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Consumo total: ... GB
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>Media por dia: ... GB
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Consumo do dia em GB (0 encerra):
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>Dias informados: ...
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>Consumo total: ... GB
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>Media por dia: ... GB
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Os dois <code>input()</code></p>
@@ -2823,20 +2877,20 @@ o segundo, o programa nunca termina.</p>
 <p>Pode supor que o cliente informa pelo menos um dia antes de digitar <code>0</code>.</p>
 <p><strong>Como deve ficar.</strong> Rodando o programa e digitando <code>1.4</code>, <code>2.0</code>, <code>0.6</code>, <code>3.0</code>, <code>0</code>,
 a tela tem de ficar assim:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Consumo do dia em GB (0 encerra): 1.4
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>Consumo do dia em GB (0 encerra): 2.0
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>Consumo do dia em GB (0 encerra): 0.6
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>Consumo do dia em GB (0 encerra): 3.0
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>Consumo do dia em GB (0 encerra): 0
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>Dias informados: 4
-<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>Consumo total: 7.0 GB
-<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>Media por dia: 1.75 GB
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Consumo do dia em GB (0 encerra): 1.4
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>Consumo do dia em GB (0 encerra): 2.0
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>Consumo do dia em GB (0 encerra): 0.6
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>Consumo do dia em GB (0 encerra): 3.0
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>Consumo do dia em GB (0 encerra): 0
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>Dias informados: 4
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>Consumo total: 7.0 GB
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>Media por dia: 1.75 GB
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># Exercício 06 — consumo diário com sentinela.</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="c1"># TODO: crie o acumulador do total e o contador de dias, ANTES do laco.</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="c1"># TODO: leia o primeiro consumo antes do while.</span>
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="c1"># TODO: enquanto o valor lido nao for 0, some, conte e leia o proximo.</span>
-<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="c1"># TODO: depois do laco, mostre os dias, o total e a media.</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># Exercício 06 — consumo diário com sentinela.</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="c1"># TODO: crie o acumulador do total e o contador de dias, ANTES do laco.</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="c1"># TODO: leia o primeiro consumo antes do while.</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="c1"># TODO: enquanto o valor lido nao for 0, some, conte e leia o proximo.</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="c1"># TODO: depois do laco, mostre os dias, o total e a media.</span>
 </code></pre></div>
 <p><a href="../../scripts/lista07/ex06.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar <code>ex06.py</code></a></p>
 

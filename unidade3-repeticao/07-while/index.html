@@ -2648,27 +2648,40 @@ seção.</p>
 </div>
 <h3 id="contador-e-acumulador-no-mesmo-laco">Contador e acumulador no mesmo laço<a class="headerlink" href="#contador-e-acumulador-no-mesmo-laco" title="Permanent link">&para;</a></h3>
 <p>Eles convivem sem problema, e quase sempre é isso que se quer:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Contador e acumulador no mesmo laco: quantos dias a franquia aguenta.</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Contador e acumulador no mesmo laco: em que dia a franquia estoura.</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">franquia_gb</span> <span class="o">=</span> <span class="mi">20</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">consumo_por_dia</span> <span class="o">=</span> <span class="mf">1.4</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">usado_gb</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">dias</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="k">while</span> <span class="n">usado_gb</span> <span class="o">+</span> <span class="n">consumo_por_dia</span> <span class="o">&lt;=</span> <span class="n">franquia_gb</span><span class="p">:</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="n">usado_gb</span> <span class="o">=</span> <span class="n">usado_gb</span> <span class="o">+</span> <span class="n">consumo_por_dia</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">usado_gb</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">dias</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">while</span> <span class="n">usado_gb</span> <span class="o">&lt;=</span> <span class="n">franquia_gb</span><span class="p">:</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="n">consumo</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Consumo do dia </span><span class="si">{</span><span class="n">dias</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> em GB: "</span><span class="p">))</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="n">usado_gb</span> <span class="o">=</span> <span class="n">usado_gb</span> <span class="o">+</span> <span class="n">consumo</span>
 <a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">dias</span> <span class="o">=</span> <span class="n">dias</span> <span class="o">+</span> <span class="mi">1</span>
 <a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dias completos dentro da franquia: </span><span class="si">{</span><span class="n">dias</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"A franquia estourou no dia </span><span class="si">{</span><span class="n">dias</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Consumo acumulado: </span><span class="si">{</span><span class="n">usado_gb</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> GB de </span><span class="si">{</span><span class="n">franquia_gb</span><span class="si">}</span><span class="s2"> GB"</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Dias completos dentro da franquia: 14
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Consumo acumulado: 19.6 GB de 20 GB
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Consumo do dia 1 em GB: 1.4
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Consumo do dia 2 em GB: 3.2
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Consumo do dia 3 em GB: 0.8
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Consumo do dia 4 em GB: 5.5
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Consumo do dia 5 em GB: 2.1
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>Consumo do dia 6 em GB: 4.0
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>Consumo do dia 7 em GB: 3.9
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>A franquia estourou no dia 7
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>Consumo acumulado: 20.9 GB de 20 GB
 </code></pre></div>
-<p>Um plano de 20 GB, consumindo 1,4 GB por dia, aguenta 14 dias completos. Repare
-que a condição olha para o <strong>futuro</strong> — <code>usado_gb + consumo_por_dia &lt;=
-franquia_gb</code> — porque a pergunta é "ainda cabe mais um dia?", e não "já
-estourei?". Escrever a condição certa é metade do trabalho de um laço.</p>
+<p>É aqui que o laço mostra a que veio. Se o cliente gastasse sempre 1,4 GB por
+dia, nem precisaria de laço: <code>20 // 1.4</code> responde 14 dias numa linha só. Mas o
+consumo muda todo dia, e na hora de escrever o programa ninguém sabe <strong>quantos
+dias</strong> vão caber na franquia — podem ser sete, podem ser trinta. Não há conta a
+fazer de antemão: o jeito é ir somando dia a dia e perguntar, a cada volta, se
+a franquia já estourou.</p>
+<p>Repare também em qual dia sai na resposta. O teste acontece <strong>antes</strong> de ler o
+consumo, então o dia que passa dos 20 GB é lido e somado, e só depois a
+condição fica falsa. Por isso o programa diz <em>"estourou no dia 7"</em>: é exatamente
+o dia em que a operadora precisa avisar o cliente.</p>
 <h2 id="o-erro-que-nao-da-erro-versao-laco">O erro que não dá erro, versão laço<a class="headerlink" href="#o-erro-que-nao-da-erro-versao-laco" title="Permanent link">&para;</a></h2>
 <p>Este é o momento central da unidade. Os dois laços abaixo são idênticos, linha
 por linha, a não ser pelo lugar onde o acumulador é criado:</p>
@@ -2762,9 +2775,9 @@ disso.</p>
 <p><strong>Regra prática:</strong> o acumulador é criado onde ele tem de valer zero <strong>uma única
 vez</strong> — antes do <code>while</code>, na margem, sem indentação.</p>
 <h2 id="a-sentinela-parar-quando-a-pessoa-mandar">A sentinela: parar quando a pessoa mandar<a class="headerlink" href="#a-sentinela-parar-quando-a-pessoa-mandar" title="Permanent link">&para;</a></h2>
-<p>Nem sempre se sabe quantas voltas o laço vai dar. Quando quem decide é a pessoa
-que está usando o programa, combina-se um valor que significa <em>acabou</em>. Esse
-valor se chama <strong>sentinela</strong>.</p>
+<p>Na franquia, quem decidia a hora de parar era a conta. Quando quem decide é a
+pessoa que está usando o programa, combina-se um valor que significa <em>acabou</em>.
+Esse valor se chama <strong>sentinela</strong>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># SENTINELA: o laco para quando a pessoa digita o valor combinado.</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">dias</span> <span class="o">=</span> <span class="mi">0</span>
